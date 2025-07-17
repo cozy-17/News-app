@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 const app = express();
 const port = 3000;
 
-const API_KEY = 'your_api_key_here';
+const API_KEY = 'e0d8bf159d004bc392b30daf4d104d64';
 
 app.use(express.static('.')); // Serve HTML, CSS, JS files
 
