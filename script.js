@@ -3,30 +3,18 @@ const url = 'https://newsapi.org/v2/everything?q=';
 
 window.addEventListener('load',() => fetchNews('india'));
 
-async function fetchNews(query) {
-    try {
-        const response = await fetch(`/news?q=${query}`);
-        const text = await response.text();  // First get raw text
-        console.log(text);                   // Check if it's JSON or error page
-        const data = JSON.parse(text);       // Then parse manually
-        bindData(data.articles);
-    } catch (err) {
-        console.error('Error fetching:', err);
-    }
-}
-
 // async function fetchNews(query) {
 //     if(!query) return;
 
-//     try{
-//     const resp = await fetch(`${url}${query}&apiKey=${API_KEY}`);
-//     const data = await resp.json();
-//     bindData(data.articles);
-//     //? return bindData(data.article);
-//     } catch(err){
-//         console.log(err);
-//     }
-// }
+    try{
+    const resp = await fetch(`${url}${query}&apiKey=${API_KEY}`);
+    const data = await resp.json();
+    bindData(data.articles);
+    //? return bindData(data.article);
+    } catch(err){
+        console.log(err);
+    }
+}
 
 function bindData(article){
     const cardContainer = document.getElementById('card-container');
