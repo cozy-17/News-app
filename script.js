@@ -1,20 +1,21 @@
-const API_KEY = 'YOUR_API_KEY';
-const url = 'https://newsapi.org/v2/everything?q=';
+
+
+
+const url = '/news?q=';
 
 window.addEventListener('load',() => fetchNews('india'));
 
 async function fetchNews(query) {
-    if(!query) return;
-
-    try{
-    const resp = await fetch(`${url}${query}&apiKey=${API_KEY}`);
-    const data = await resp.json();
-    bindData(data.articles);
-    //? return bindData(data.article);
-    } catch(err){
+    if (!query) return;
+    try {
+        const resp = await fetch(`${url}${query}`);
+        const data = await resp.json();
+        bindData(data.articles);
+    } catch (err) {
         console.log(err);
     }
 }
+
 
 function bindData(article){
     const cardContainer = document.getElementById('card-container');
